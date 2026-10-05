@@ -51,6 +51,11 @@ class Signing(unittest.TestCase):
         with patch.object(sign, 'ROOT', self.root), self.assertRaises(ValueError):
             self.load()
 
+    def test_config_inside_unnormalized_source_rejected(self):
+        alias = self.root / 'unused' / '..'
+        with patch.object(sign, 'ROOT', alias), self.assertRaises(ValueError):
+            self.load()
+
     def test_bad_thumbprint_rejected(self):
         with self.assertRaises(ValueError):
             self.load({**CONFIG, 'certificate_thumbprint': 'bad'})
@@ -89,7 +94,7 @@ class Signing(unittest.TestCase):
             result = sign.verify(self.file, CONFIG)
         self.assertEqual(invoke.call_count, 2)
         self.assertEqual(invoke.call_args_list[0].args[0],
-                         ['signtool.exe', 'verify', '/pa', '/all', '/v', '/tw', str(self.file)])
+                         ['signtool.exe', 'verify', '/pa', '/all', '/v', '/tw', str(self.file.resolve(strict=True))])
         ps = invoke.call_args_list[1]
         import base64
         script = base64.b64decode(ps.args[0][-1]).decode('utf-16le')

@@ -22,7 +22,7 @@ def load_config():
     if not name:
         raise ValueError('Set NATIVESNIP_SIGN_CONFIG to an external signing JSON file.')
     path = pathlib.Path(name).resolve(strict=True)
-    if path.is_relative_to(ROOT):
+    if path.is_relative_to(ROOT.resolve()):
         raise ValueError('Signing configuration must be outside the source tree.')
     config = json.loads(path.read_text(encoding='utf-8-sig'))
     allowed = {'signtool', 'certificate_thumbprint', 'timestamp_url', 'machine_store', 'sign_command'}
