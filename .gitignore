@@ -1,0 +1,37 @@
+# Generated builds and dependencies
+/dist/
+/target/
+/native/target/
+node_modules/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Signing credentials and local configuration (keep outside the source tree)
+*.pem
+*.pfx
+*.p12
+*.key
+*.keystore
+*.jks
+.env
+.env.*
+signing.json
+signing.local.json
+/signing/
+/secrets/
+
+# Local logs and diagnostics
+*.log
+*.jsonl
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini

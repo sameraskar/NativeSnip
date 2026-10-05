@@ -1,0 +1,8 @@
+{
+  "version": "0.3.1",
+  "host": "com.autosnips.capture",
+  "chromium_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAraHNQckSTpbRRFz+L6uuPlArqKuTOKuNXLzMqHaDEDtmyobLTtZcRM6weyo0jA1W4SiAZ/aqyySeSRu9KMHmYjKOeZgqD/spRY9nGOyc24t0F0KONi4Fxlg3u9VfTzX7nCdfYgFLske9MIVFwW9Dcfn3/FxOua29bXlG+Q+FUmSxgq5pLnqVJVcQNmyTaJWFBSOZBMH0hd73fffn1Zq4AIAuxj+/78pTnUYPlGuRfgyREw/b+Bh09Aj6v1b9+ql7KnaW7azzg4TtoNuhckegPzELpPPm9nvmPmKPpAdGoOKFyDJMqw4hc/dAdfPMiEkUTPw/QH4ok7+e16IXHBq4EwIDAQAB",
+  "chromium_id": "fibdpigmdcoeannimooiajdkkhioijno",
+  "firefox_id": "autosnips@autosnips.local",
+  "protocol": 1
+}

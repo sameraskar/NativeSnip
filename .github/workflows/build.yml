@@ -1,0 +1,30 @@
+name: Build both browser extensions
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: choco install nsis --no-progress -y
+      - run: python scripts/build.py
+        env:
+          MAKENSIS: C:\Program Files (x86)\NSIS\makensis.exe
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NativeSnip-both-browsers-Windows-x64
+          path: |
+            dist/NativeSnip-chromium-*.zip
+            dist/NativeSnip-firefox-*.zip
+            dist/NativeSnip-Helper-Setup.exe
+            dist/NativeSnip-Source-*.zip
+            dist/NativeSnip-Release-*.zip
+            dist/NativeSnip-SHA256SUMS-*.txt

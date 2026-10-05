@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>NativeSnip · Windows screenshots</title><link rel="stylesheet" href="setup.css"></head>
+<body><main>
+<header><img src="icons/icon-128.png" width="56" height="56" alt=""><div><h1>NativeSnip</h1><p class="subtitle">Windows screenshots, one browser button.</p></div></header>
+<section class="card"><span class="eyebrow">NATIVE WINDOWS CAPTURE</span><h2 id="heading">Connect to Windows screenshots</h2>
+<p>Uses Windows’ built-in screenshot bar. Install a small local helper to let this extension open the bar and save your captures. The helper runs only while you’re taking a screenshot or using its settings.</p>
+<div id="connection" role="status" aria-live="polite">Checking the screenshot connection…</div>
+<div id="setup"><ol><li>Click below to save the bundled installer to your browser’s Downloads location.</li><li>Explorer opens with the installer selected. Double-click it and complete setup.</li><li>Return here and check the connection. Then your toolbar button is ready.</li></ol>
+<div class="actions"><button id="install" class="primary">Save helper installer</button><button id="check">Check connection</button><button id="reveal" hidden>Show installer in folder</button></div>
+<p class="small">Windows x64. No .NET required. Windows or your browser may ask you to confirm opening the unsigned installer. Installing this helper does not install Microsoft’s Snipping Tool app.</p></div>
+<div id="ready" hidden><div class="actions"><button id="capture" class="primary">Take screenshot</button><button id="open">Open screenshots folder</button><button id="cancel" hidden>Cancel saving</button></div><p class="small">Click the browser toolbar icon next time. Select a capture in the Windows bar, or press Escape to cancel. You can close this tab; a capture already in progress continues.</p></div></section>
+<section id="settings" class="card" hidden><h2>Settings</h2><label for="folder">Save folder</label><div class="folder-row"><input id="folder" type="text" placeholder="Use Windows’ Screenshots folder"><button id="browse">Browse…</button></div><p id="resolved" class="small"></p>
+<label for="launch">Open Windows capture bar using</label><select id="launch"><option value="shortcut">Windows shortcut (recommended)</option><option value="protocol">Windows protocol (compatibility)</option></select><p class="small">The shortcut uses Win+Shift+S. If it does not open the bar on your PC, select compatibility mode.</p>
+<label class="check"><input id="diagnostics" type="checkbox"> Keep local diagnostic metadata</label><p class="small">Records launch timing, cancellation timing, capture decisions and errors locally. No clipboard text, screenshot pixels, or browsing history are included. Nothing is uploaded.</p>
+<label class="check"><input id="broker" type="checkbox"> Allow Windows clipboard broker captures</label><p class="small">Needed on some Windows builds. This detection rule is provisional and may accept an unrelated copied image during a capture session. Turn it off to use recognized capture processes only.</p>
+<div class="actions"><button id="save" class="primary">Save settings</button><button id="export">Export diagnostics</button></div>
+<details><summary>Repair or remove the connection</summary><p>To update or repair the helper, save and run the bundled installer again. To remove it, open Windows Settings → Apps → Installed apps → NativeSnip Windows Screenshot Connection. Remove the browser extension separately. Your screenshots remain saved.</p><button id="repair">Save helper installer</button></details></section>
+<footer>No account. No cloud upload. Capture sessions end after one save, cancellation, or 90 seconds.</footer>
+</main><script src="setup.js"></script></body></html>
